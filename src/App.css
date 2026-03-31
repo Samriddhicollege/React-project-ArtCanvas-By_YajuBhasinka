@@ -1,0 +1,481 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #e8eef4;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* ===== App — fullscreen ===== */
+.app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #dce8f5;
+}
+
+/* ===== Title Bar ===== */
+.title-bar {
+  background: linear-gradient(135deg, #1a6fc4, #2d9cdb);
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(26, 111, 196, 0.3);
+  flex-shrink: 0;
+}
+
+.title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notif {
+  background: #ffffff;
+  color: #1a6fc4;
+  font-size: 0.75rem;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Toolbar ===== */
+.toolbar {
+  background: #f0f6ff;
+  border-bottom: 1px solid #b8d0ea;
+  padding: 8px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 14px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.toolbar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.group-label {
+  font-size: 0.65rem;
+  color: #5a7fa8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.divider {
+  width: 1px;
+  background: #b8d0ea;
+  align-self: stretch;
+  margin: 0 2px;
+}
+
+/* ===== Toolbar Button (Reusable - Criteria 14) ===== */
+.toolbar-btn {
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1.5px solid #b8d0ea;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #1a4f7a;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.toolbar-btn:hover {
+  background: #e3f0ff;
+  border-color: #1a6fc4;
+  color: #1a4f7a;
+}
+
+.toolbar-btn-active {
+  background: #1a6fc4;
+  border-color: #1a6fc4;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(26,111,196,0.35);
+}
+
+.toolbar-btn-active:hover {
+  background: #1560ad;
+  color: #ffffff;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Size Buttons ===== */
+.size-btn {
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border: 1.5px solid #b8d0ea;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.size-btn:hover {
+  border-color: #1a6fc4;
+  background: #e3f0ff;
+}
+
+.size-active {
+  border-color: #1a6fc4;
+  background: #1a6fc4;
+}
+
+.size-active .size-dot {
+  background: #ffffff !important;
+}
+
+.size-dot {
+  background: #1a4f7a;
+  border-radius: 50%;
+  display: block;
+}
+
+/* ===== Brush size input ===== */
+.size-input {
+  width: 52px;
+  padding: 4px 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1a4f7a;
+  background: #ffffff;
+  border: 1.5px solid #b8d0ea;
+  border-radius: 6px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  outline: none;
+  margin-top: 3px;
+}
+
+.size-input:focus {
+  border-color: #1a6fc4;
+}
+
+/* ===== Color Controls ===== */
+.active-color-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 2px solid #b8d0ea;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.color-input {
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid #b8d0ea;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
+
+/* ===== Color Palette ===== */
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(10, 20px);
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.2);
+  border-color: #1a6fc4;
+}
+
+.swatch-active {
+  border: 2.5px solid #1a4f7a;
+  transform: scale(1.15);
+}
+
+/* ===== Canvas Area ===== */
+.canvas-area {
+  flex: 1;
+  background: #c8ddef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 16px;
+}
+
+.paint-canvas {
+  display: block;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(26, 111, 196, 0.18), 0 1px 6px rgba(0,0,0,0.1);
+  cursor: crosshair;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* ===== Status Bar ===== */
+.status-bar {
+  background: #f0f6ff;
+  border-top: 1px solid #b8d0ea;
+  padding: 4px 16px;
+  display: flex;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: #1a4f7a;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.status-bar span {
+  background: #ffffff;
+  border: 1px solid #b8d0ea;
+  border-radius: 4px;
+  padding: 2px 10px;
+}
+
+/* ===== Modal Overlay ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 40, 80, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #b8d0ea;
+  width: 92%;
+  max-width: 820px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(26, 111, 196, 0.25), 0 4px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* ===== Modal Title Bar ===== */
+.modal-titlebar {
+  background: linear-gradient(135deg, #1a6fc4, #2d9cdb);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.modal-title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-close {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #ffffff;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.modal-close:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ===== Modal Empty State ===== */
+.modal-empty {
+  padding: 60px 40px;
+  text-align: center;
+  color: #5a7fa8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-empty p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a4f7a;
+}
+
+.modal-empty span {
+  font-size: 0.82rem;
+  color: #7a9ec0;
+}
+
+/* ===== Modal Grid ===== */
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ===== Drawing Card — bigger & clear ===== */
+.modal-card {
+  background: #f5f9ff;
+  border: 1.5px solid #b8d0ea;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(26,111,196,0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.modal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(26,111,196,0.18);
+}
+
+.modal-thumb-wrap {
+  background: #ffffff;
+  border-bottom: 1.5px solid #b8d0ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 160px;
+}
+
+.modal-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+  padding: 8px;
+}
+
+.modal-card-info {
+  padding: 10px 12px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: #eaf3ff;
+}
+
+.modal-card-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a3f6f;
+}
+
+.modal-date {
+  color: #5a7fa8;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.modal-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #eaf3ff;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.open-btn {
+  background: #1a6fc4;
+  color: #ffffff;
+}
+
+.open-btn:hover {
+  background: #1560ad;
+}
+
+.del-btn {
+  background: #e8f0fb;
+  color: #c0392b;
+  border: 1.5px solid #f5b8b8;
+}
+
+.del-btn:hover {
+  background: #fde8e8;
+}
