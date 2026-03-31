@@ -17,7 +17,7 @@
 
 * **Instructor Name:** Mr. Dipak Shrestha
 * **Course Title:** React Development / Full Stack Development
-* **College Name:** XYZ International College
+* **College Name:** Samriddhi College
 
 ---
 
@@ -36,7 +36,7 @@
 * Build a responsive React application using functional components and hooks
 * Implement real-world drawing features using the HTML5 Canvas API
 * Understand and apply localStorage for client-side data persistence
-* Apply clean UI/UX design principles with a modern blue theme
+* Apply clean UI/UX design principles
 
 ---
 
@@ -96,7 +96,7 @@
 git clone https://github.com/yajubhasinka/art-canvas.git
 
 # Go to project folder
-cd art-canvas
+cd new-rproject
 
 # Install dependencies
 npm install
@@ -130,8 +130,8 @@ npm run dev
 
 ## GitHub & Live Demo
 
-* **GitHub Repository:** https://github.com/yajubhasinka/art-canvas
-* **Live URL (if deployed):** https://art-canvas.netlify.app
+* **GitHub Repository:** (https://github.com/Samriddhicollege/React-project-ArtCanvas-By_YajuBhasinka.git)
+* **Live URL :** https://react-project-art-canvas-by-yaju-bh.vercel.app/
 
 ---
 
